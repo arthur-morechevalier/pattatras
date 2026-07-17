@@ -96,4 +96,33 @@ final class PattatrasConverterTest extends TestCase
             'n=90' => [90],
         ];
     }
+
+    /**
+     * Un nombre qui n'est multiple ni de 3 ni de 5 doit renvoyer
+     * le nombre lui-même, sous forme de chaîne.
+     */
+    #[DataProvider('nombresSansMultiple')]
+    public function testAutreNombreRenvoieLeNombreLuiMeme(int $nombre, string $attendu): void
+    {
+        $converter = new PattatrasConverter();
+
+        self::assertSame($attendu, $converter->convert($nombre));
+    }
+
+    /**
+     * Quelques nombres multiples ni de 3 ni de 5, avec l'affichage attendu.
+     *
+     * @return array<string, array{int, string}>
+     */
+    public static function nombresSansMultiple(): array
+    {
+        return [
+            'n=1'  => [1, '1'],
+            'n=2'  => [2, '2'],
+            'n=4'  => [4, '4'],
+            'n=7'  => [7, '7'],
+            'n=8'  => [8, '8'],
+            'n=13' => [13, '13'],
+        ];
+    }
 }

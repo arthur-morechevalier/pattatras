@@ -39,7 +39,7 @@ final class PattatrasConverter
             return 'Tatras';
         }
 
-        // Cas par défaut : le nombre lui-même (affiné par les règles suivantes).
+        // Sinon : ni multiple de 3 ni de 5 → le nombre lui-même.
         return (string) $nombre;
     }
 }
