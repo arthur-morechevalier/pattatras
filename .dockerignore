@@ -1,0 +1,8 @@
+# Fichiers inutiles dans l'image Docker (l'exécution ne dépend que de src/ et bin/).
+vendor/
+tests/
+.git/
+.idea/
+.github/
+resultat.txt
+*.md
