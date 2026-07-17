@@ -42,4 +42,31 @@ final class PattatrasConverterTest extends TestCase
             'n=18' => [18],
         ];
     }
+
+    /**
+     * Un nombre multiple de 5 (mais pas de 3) doit renvoyer « Tatras ».
+     */
+    #[DataProvider('multiplesDeCinqSeulement')]
+    public function testMultipleDeCinqRenvoieTatras(int $nombre): void
+    {
+        $converter = new PattatrasConverter();
+
+        self::assertSame('Tatras', $converter->convert($nombre));
+    }
+
+    /**
+     * Quelques multiples de 5 qui ne sont PAS multiples de 3.
+     *
+     * @return array<string, array{int}>
+     */
+    public static function multiplesDeCinqSeulement(): array
+    {
+        return [
+            'n=5'  => [5],
+            'n=10' => [10],
+            'n=20' => [20],
+            'n=25' => [25],
+            'n=50' => [50],
+        ];
+    }
 }

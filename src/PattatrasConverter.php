@@ -28,6 +28,11 @@ final class PattatrasConverter
             return 'Patte';
         }
 
+        // Multiple de 5 → « Tatras ».
+        if ($nombre % 5 === 0) {
+            return 'Tatras';
+        }
+
         // Cas par défaut : le nombre lui-même (affiné par les règles suivantes).
         return (string) $nombre;
     }
