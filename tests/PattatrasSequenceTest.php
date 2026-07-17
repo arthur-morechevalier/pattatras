@@ -48,4 +48,29 @@ final class PattatrasSequenceTest extends TestCase
         self::assertSame('1', $lignes[0]);
         self::assertSame('6457', $lignes[6456]);
     }
+
+    /**
+     * Cas de bornes (pièges classiques du sujet) :
+     *  - le tout premier nombre est 1 et non 0 ;
+     *  - la toute fin de plage est correcte, avec ses trois derniers cas :
+     *      6455 (multiple de 5)  → « Tatras »,
+     *      6456 (multiple de 3)  → « Patte »,
+     *      6457 (ni l'un ni l'autre) → le nombre lui-même.
+     *
+     * Ces indices reposent sur le fait que $lignes[i] correspond au nombre i+1.
+     */
+    public function testBornesDeLaPlageOfficielle(): void
+    {
+        $sequence = new PattatrasSequence(new PattatrasConverter());
+
+        $lignes = $sequence->generate(PattatrasSequence::DEBUT, PattatrasSequence::FIN);
+
+        // Borne de début : on commence bien à 1.
+        self::assertSame('1', $lignes[0]);
+
+        // Borne de fin : les trois derniers nombres 6455, 6456, 6457.
+        self::assertSame('Tatras', $lignes[6454]);
+        self::assertSame('Patte', $lignes[6455]);
+        self::assertSame('6457', $lignes[6456]);
+    }
 }
