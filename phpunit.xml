@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Configuration PHPUnit du projet Pattatras.
+    - bootstrap : charge l'autoloader Composer (PSR-4) pour trouver les classes.
+    - testsuite : tous les tests se trouvent dans le dossier tests/.
+    - failOnWarning / failOnRisky : on veut une suite stricte et fiable.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         failOnWarning="true"
+         failOnRisky="true"
+         cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="Pattatras">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Périmètre de couverture de code : uniquement notre code métier (src/). -->
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+</phpunit>

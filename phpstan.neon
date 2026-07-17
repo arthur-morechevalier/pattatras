@@ -1,0 +1,9 @@
+# Configuration PHPStan — analyse statique du projet Pattatras.
+# Le niveau 10 est le niveau maximal : il impose un typage complet et strict
+# (aucun "mixed" implicite, tous les types vérifiés).
+parameters:
+    level: 10
+    paths:
+        - src
+        - tests
+        - bin

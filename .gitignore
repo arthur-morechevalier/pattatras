@@ -1,5 +1,8 @@
 /vendor/
-composer.lock
 .phpunit.result.cache
+.phpunit.cache/
 .idea/
 .DS_Store
+
+# NB : composer.lock est volontairement versionné (projet = application),
+# afin de garantir des versions de dépendances reproductibles.
