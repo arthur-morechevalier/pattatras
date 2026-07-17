@@ -69,4 +69,31 @@ final class PattatrasConverterTest extends TestCase
             'n=50' => [50],
         ];
     }
+
+    /**
+     * Un nombre multiple de 3 ET de 5 (donc de 15) doit renvoyer « Pattatras ».
+     */
+    #[DataProvider('multiplesDeQuinze')]
+    public function testMultipleDeTroisEtCinqRenvoiePattatras(int $nombre): void
+    {
+        $converter = new PattatrasConverter();
+
+        self::assertSame('Pattatras', $converter->convert($nombre));
+    }
+
+    /**
+     * Quelques multiples de 15 (à la fois multiples de 3 et de 5).
+     *
+     * @return array<string, array{int}>
+     */
+    public static function multiplesDeQuinze(): array
+    {
+        return [
+            'n=15' => [15],
+            'n=30' => [30],
+            'n=45' => [45],
+            'n=60' => [60],
+            'n=90' => [90],
+        ];
+    }
 }

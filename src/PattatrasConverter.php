@@ -23,6 +23,12 @@ final class PattatrasConverter
      */
     public function convert(int $nombre): string
     {
+        // Multiple de 3 ET de 5 → « Pattatras ».
+        // Testé en premier car ce cas prime sur « Patte » et « Tatras ».
+        if ($nombre % 3 === 0 && $nombre % 5 === 0) {
+            return 'Pattatras';
+        }
+
         // Multiple de 3 → « Patte ».
         if ($nombre % 3 === 0) {
             return 'Patte';
