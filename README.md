@@ -15,11 +15,29 @@ Programme qui parcourt les nombres de 1 à 6457 et, pour chacun, affiche :
 Le fichier [`resultat.txt`](resultat.txt) contient les 6457 lignes déjà générées
 par le programme : il est consultable directement, sans rien installer ni exécuter.
 
+## Récupérer le projet
+
+Le dépôt est public : https://github.com/arthur-morechevalier/pattatras
+
+```bash
+git clone https://github.com/arthur-morechevalier/pattatras.git
+cd pattatras
+```
+
+Sans git, le bouton vert **Code → Download ZIP** sur la page du dépôt permet de
+télécharger le projet, puis il suffit de décompresser l'archive.
+
+L'historique des commits, consultable sur le dépôt, retrace le développement étape
+par étape (une règle par cycle de test).
+
 ## Lancer le programme
 
 Trois façons, de la plus simple à la plus complète.
+Toutes se lancent depuis le dossier du projet.
 
 ### 1. Avec Docker (aucune installation de PHP nécessaire)
+
+Prérequis : [Docker](https://docs.docker.com/get-docker/) installé.
 
 ```bash
 docker build -t pattatras .
@@ -28,6 +46,7 @@ docker run --rm pattatras
 
 ### 2. Avec PHP seul
 
+Prérequis : PHP 8.1 ou plus (`php --version` pour vérifier).
 Aucune dépendance n'est nécessaire pour exécuter le programme :
 
 ```bash
@@ -35,6 +54,8 @@ php bin/pattatras.php
 ```
 
 ### 3. Avec Composer
+
+Prérequis : PHP 8.1 ou plus et [Composer](https://getcomposer.org/download/).
 
 ```bash
 composer install
