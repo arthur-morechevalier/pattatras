@@ -75,6 +75,46 @@ composer stan   # PHPStan niveau 10 (src, tests, bin)
 Ces deux commandes sont également rejouées automatiquement à chaque push
 via GitHub Actions (voir [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
+## Organisation des fichiers
+
+```
+pattatras/
+├── src/                       Le cœur du programme (la logique)
+│   ├── PattatrasConverter.php   Applique la règle à UN nombre → renvoie le texte
+│   └── PattatrasSequence.php    Parcourt la plage → renvoie la liste des textes
+├── bin/
+│   └── pattatras.php            Le programme à lancer : affiche le résultat
+├── tests/                     Les tests automatiques
+│   ├── PattatrasConverterTest.php   Vérifie les 4 règles, valeur par valeur
+│   └── PattatrasSequenceTest.php    Vérifie le parcours complet et ses bornes
+├── resultat.txt               Les 6457 lignes déjà générées (consultation directe)
+├── Dockerfile                 Recette pour lancer le programme sans installer PHP
+├── composer.json              Dépendances et raccourcis (test, stan, start)
+├── phpunit.xml                Configuration des tests
+├── phpstan.neon               Configuration de l'analyse statique
+└── .github/workflows/ci.yml   Tests rejoués automatiquement à chaque envoi de code
+```
+
+La séparation `src` / `bin` est volontaire : `src` contient du code qui **calcule et
+renvoie** des valeurs (donc testable automatiquement), `bin` contient uniquement
+l'**affichage** à l'écran. C'est ce découpage qui rend les tests possibles.
+
+## Technologies utilisées et pourquoi
+
+| Outil | Rôle | Pourquoi ce choix |
+|---|---|---|
+| **PHP 8.1+** | Le langage | Technologie libre selon l'énoncé. PHP est disponible partout, ne demande aucune compilation, et le programme se lance d'une seule commande. Le typage strict des versions récentes (`declare(strict_types=1)`) évite les conversions implicites de types. |
+| **PHPUnit 10** | Les tests automatiques | Outil de test standard de l'écosystème PHP. Il permet de vérifier en une commande que les règles sont toujours respectées, y compris après une modification. |
+| **PHPStan (niveau 10)** | L'analyse statique | Il relit le code **sans l'exécuter** et signale les incohérences de types. Le niveau 10 est le plus strict. C'est un filet de sécurité complémentaire aux tests : il détecte des erreurs avant même le lancement. |
+| **Composer** | Gestion des dépendances | Standard PHP. Il installe PHPUnit et PHPStan, et fournit des raccourcis lisibles : `composer test`, `composer stan`, `composer start`. |
+| **Docker** | Exécution sans installation | L'énoncé demande qu'une personne peu technique puisse lancer le programme. Docker évite d'avoir à installer PHP : deux commandes suffisent. |
+| **GitHub Actions** | Intégration continue (CI) | À chaque envoi de code, les tests et l'analyse sont rejoués automatiquement sur une machine neuve. Cela prouve que le projet fonctionne ailleurs que sur la machine du développeur. |
+| **Git / GitHub** | Historique et livraison | L'historique des commits rend la démarche visible : une règle par étape, test d'abord. |
+
+À noter : **le programme lui-même n'a aucune dépendance**. PHPUnit et PHPStan ne
+servent qu'au développement. C'est pourquoi `php bin/pattatras.php` fonctionne
+immédiatement, sans installation préalable.
+
 ## Démarche et choix techniques
 
 **Développé en TDD** : chaque règle a été introduite par un test qui échoue,
