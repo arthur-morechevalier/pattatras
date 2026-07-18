@@ -1,5 +1,7 @@
 # Pattatras
 
+[![CI](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml/badge.svg)](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml)
+
 Test technique développeur — CPAM de la Gironde.
 
 Programme qui parcourt les nombres de 1 à 6457 et, pour chacun, affiche :
