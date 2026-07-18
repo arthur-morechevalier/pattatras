@@ -1,0 +1,31 @@
+name: CI
+
+# Vérification automatique à chaque push et sur les pull requests :
+# la suite de tests doit passer et l'analyse statique ne doit remonter aucune erreur.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    name: Tests et analyse statique
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Installation de PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Installation des dépendances
+        run: composer install --no-interaction --no-progress
+
+      - name: Tests unitaires et d'intégration (PHPUnit)
+        run: composer test
+
+      - name: Analyse statique niveau 10 (PHPStan)
+        run: composer stan
