@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml/badge.svg)](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml)
 
-Test technique développeur — CPAM de la Gironde.
+Test technique développeur (CPAM de la Gironde).
 
 Programme qui parcourt les nombres de 1 à 6457 et, pour chacun, affiche :
 - « Pattatras » s'il est multiple de 3 et de 5
@@ -15,7 +15,7 @@ Programme qui parcourt les nombres de 1 à 6457 et, pour chacun, affiche :
 Le fichier [`resultat.txt`](resultat.txt) contient les 6457 lignes déjà générées
 par le programme : il est consultable directement, sans rien installer ni exécuter.
 
-## Récupérer le projet
+## Récupérer le projet via Github
 
 Le dépôt est public : https://github.com/arthur-morechevalier/pattatras
 
@@ -29,6 +29,10 @@ télécharger le projet, puis il suffit de décompresser l'archive.
 
 L'historique des commits, consultable sur le dépôt, retrace le développement étape
 par étape (une règle par cycle de test).
+
+**[Voir l'historique des commits](https://github.com/arthur-morechevalier/pattatras/commits/main/)**
+: il permet de constater l'ordre et l'évolution du projet, avec plusieurs étapes
+poussées régulièrement plutôt qu'un unique envoi final.
 
 ## Lancer le programme
 
