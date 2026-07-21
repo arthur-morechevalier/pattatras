@@ -126,6 +126,13 @@ choix d'environnement de référence à jour.
 servent qu'au développement. C'est pourquoi `php bin/pattatras.php` fonctionne
 immédiatement, sans installation préalable.
 
+Dans une démarche d'utilisation responsable des outils d'IA, j'ai sollicité un
+assistant (Claude) comme conseiller : échanger sur les approches possibles,
+relire, challenger mes choix. Je garde systématiquement la maîtrise du code
+produit, rien n'est intégré sans être compris et validé, et l'ensemble des
+décisions techniques (TDD, séparation logique/affichage, couverture des cas
+limites) m'appartient.
+
 ## Démarche et choix techniques
 
 **Développé en TDD** : chaque règle a été introduite par un test qui échoue,
