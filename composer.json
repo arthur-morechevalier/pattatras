@@ -1,6 +1,6 @@
 {
     "name": "arthur-morechevalier/pattatras",
-    "description": "Test technique CPAM — programme Pattatras (multiples de 3 et 5) en PHP, développé en TDD.",
+    "description": "Test technique développeur — programme Pattatras (multiples de 3 et 5) en PHP, développé en TDD.",
     "type": "project",
     "require": {
         "php": ">=8.1"

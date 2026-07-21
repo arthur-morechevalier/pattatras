@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml/badge.svg)](https://github.com/arthur-morechevalier/pattatras/actions/workflows/ci.yml)
 
-Test technique développeur (CPAM de la Gironde).
+Test technique développeur.
 
 Programme qui parcourt les nombres de 1 à 6457 et, pour chacun, affiche :
 - « Pattatras » s'il est multiple de 3 et de 5
