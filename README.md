@@ -115,7 +115,14 @@ l'**affichage** à l'écran. C'est ce découpage qui rend les tests possibles.
 | **GitHub Actions (PHP 8.5)** | Intégration continue (CI) | À chaque envoi de code, les tests et l'analyse sont rejoués automatiquement sur une machine neuve, avec la même version de PHP que le conteneur Docker. Cela prouve que le projet fonctionne ailleurs que sur la machine du développeur. |
 | **Git / GitHub** | Historique et livraison | L'historique des commits rend la démarche visible : une règle par étape, test d'abord. |
 
-À noter : **le programme lui-même n'a aucune dépendance**. PHPUnit et PHPStan ne
+À noter sur les deux versions de PHP citées ci-dessus : **8.1+** est le plancher de
+compatibilité déclaré dans `composer.json` (le projet fonctionne dès PHP 8.1,
+vérifié avec la suite de tests) ; **8.5** est le choix délibéré pour l'environnement
+d'exécution (Docker, CI), afin de rester sur la dernière version stable. Les deux
+ne s'opposent pas : l'un est une garantie de compatibilité minimale, l'autre un
+choix d'environnement de référence à jour.
+
+À noter par ailleurs : **le programme lui-même n'a aucune dépendance**. PHPUnit et PHPStan ne
 servent qu'au développement. C'est pourquoi `php bin/pattatras.php` fonctionne
 immédiatement, sans installation préalable.
 
