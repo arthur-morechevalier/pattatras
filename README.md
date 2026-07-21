@@ -142,6 +142,13 @@ affiché « Patte »). Un test dédié verrouille ce comportement.
 vérifient explicitement (1, 6455 → « Tatras », 6456 → « Patte », 6457 → lui-même),
 la borne haute étant l'erreur classique sur ce type de boucle.
 
+**Garde défensive sur `generate()`** : bien que le programme n'appelle
+`generate()` qu'avec la plage officielle 1→6457, la méthode reste réutilisable
+avec des bornes arbitraires. Sans vérification, une plage inversée (par exemple
+`generate(300, 100)`) renvoie silencieusement une liste vide au lieu de signaler
+une erreur d'appel. Une `InvalidArgumentException` est donc levée si
+`$debut > $fin`, avec un test dédié qui verrouille ce comportement.
+
 **PHPStan niveau 10** (le plus strict) est appliqué à `src`, `tests` et `bin`,
 avec `declare(strict_types=1)` partout.
 
