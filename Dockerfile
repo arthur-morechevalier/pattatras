@@ -1,6 +1,6 @@
 # Image PHP CLI légère : permet d'exécuter le programme SANS installer PHP
 # localement. Une personne non technique n'a besoin que de Docker.
-FROM php:8.3-cli-alpine
+FROM php:8.5-cli-alpine
 
 WORKDIR /app
 

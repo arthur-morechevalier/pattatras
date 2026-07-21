@@ -111,8 +111,8 @@ l'**affichage** à l'écran. C'est ce découpage qui rend les tests possibles.
 | **PHPUnit 10** | Les tests automatiques | Outil de test standard de l'écosystème PHP. Il permet de vérifier en une commande que les règles sont toujours respectées, y compris après une modification. |
 | **PHPStan (niveau 10)** | L'analyse statique | Il relit le code **sans l'exécuter** et signale les incohérences de types. Le niveau 10 est le plus strict. C'est un filet de sécurité complémentaire aux tests : il détecte des erreurs avant même le lancement. |
 | **Composer** | Gestion des dépendances | Standard PHP. Il installe PHPUnit et PHPStan, et fournit des raccourcis lisibles : `composer test`, `composer stan`, `composer start`. |
-| **Docker** | Exécution sans installation | L'énoncé demande qu'une personne peu technique puisse lancer le programme. Docker évite d'avoir à installer PHP : deux commandes suffisent. |
-| **GitHub Actions** | Intégration continue (CI) | À chaque envoi de code, les tests et l'analyse sont rejoués automatiquement sur une machine neuve. Cela prouve que le projet fonctionne ailleurs que sur la machine du développeur. |
+| **Docker (PHP 8.5)** | Exécution sans installation | L'énoncé demande qu'une personne peu technique puisse lancer le programme. Docker évite d'avoir à installer PHP : deux commandes suffisent. L'image utilise PHP 8.5, la dernière version stable, pour un conteneur à jour. |
+| **GitHub Actions (PHP 8.5)** | Intégration continue (CI) | À chaque envoi de code, les tests et l'analyse sont rejoués automatiquement sur une machine neuve, avec la même version de PHP que le conteneur Docker. Cela prouve que le projet fonctionne ailleurs que sur la machine du développeur. |
 | **Git / GitHub** | Historique et livraison | L'historique des commits rend la démarche visible : une règle par étape, test d'abord. |
 
 À noter : **le programme lui-même n'a aucune dépendance**. PHPUnit et PHPStan ne
