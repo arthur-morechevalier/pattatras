@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pattatras\Tests;
 
+use InvalidArgumentException;
 use Pattatras\PattatrasConverter;
 use Pattatras\PattatrasSequence;
 use PHPUnit\Framework\TestCase;
@@ -72,5 +73,20 @@ final class PattatrasSequenceTest extends TestCase
         self::assertSame('Tatras', $lignes[6454]);
         self::assertSame('Patte', $lignes[6455]);
         self::assertSame('6457', $lignes[6456]);
+    }
+
+    /**
+     * Une plage inversée ($debut > $fin) est un contexte invalide : la méthode
+     * doit le signaler explicitement plutôt que de renvoyer silencieusement
+     * un tableau vide (piège relevé en relecture : un appelant qui inverserait
+     * les bornes par erreur ne s'en apercevrait sinon jamais).
+     */
+    public function testLeveUneExceptionSiDebutSuperieurAFin(): void
+    {
+        $sequence = new PattatrasSequence(new PattatrasConverter());
+
+        $this->expectException(InvalidArgumentException::class);
+
+        $sequence->generate(300, 100);
     }
 }

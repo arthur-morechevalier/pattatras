@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Pattatras;
 
+use InvalidArgumentException;
+
 /**
  * Parcourt une plage de nombres et applique la règle « Pattatras » à chacun.
  *
@@ -28,9 +30,17 @@ final class PattatrasSequence
      * [$debut, $fin] (bornes incluses).
      *
      * @return list<string>
+     *
+     * @throws InvalidArgumentException si $debut est supérieur à $fin.
      */
     public function generate(int $debut, int $fin): array
     {
+        if ($debut > $fin) {
+            throw new InvalidArgumentException(
+                "La borne de début ({$debut}) doit être inférieure ou égale à la borne de fin ({$fin})."
+            );
+        }
+
         $lignes = [];
 
         for ($nombre = $debut; $nombre <= $fin; $nombre++) {
